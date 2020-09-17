@@ -2,6 +2,7 @@
   "name": "learnNode",
   "version": "1.0.0",
   "dependencies": {
+    "ali-oss": "^6.10.0",
     "download-git-repo": "^3.0.2"
   },
   "devDependencies": {
