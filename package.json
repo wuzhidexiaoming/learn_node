@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "dependencies": {
     "ali-oss": "^6.10.0",
-    "download-git-repo": "^3.0.2"
+    "download-git-repo": "^3.0.2",
+    "got": "^11.7.0",
+    "http-errors": "^1.8.0"
   },
   "devDependencies": {
     "ora": "^4.0.3"

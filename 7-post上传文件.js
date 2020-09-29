@@ -1,8 +1,9 @@
 const http = require("http");
 const ming_utils = require("./ming-utils/bufferHandel");
+const os  =require('os')
 const fs = require("fs");
 http
-  .createServer((req, res) => {
+  .createServer((req, resq) => {
     let boundary =
       "--" + req.headers["content-type"].split(";")[1].split("=")[1];
     let arr = [];
@@ -12,7 +13,6 @@ http
     req.on("end", () => {
       let buffer = Buffer.concat(arr);
       let res = ming_utils.bufferHandel(buffer, boundary);
-      console.log(res.toString());
       // 头尾各有\r\n，去掉,之后普通类型，header与content之间有一个\r\n了，而文件类型header中还多了一个\r\n
       res.pop();
       res.shift();
@@ -39,6 +39,7 @@ http
             if (err) {
               console.log(err);
             } else {
+              resq.write('上传成功')
               console.log("上传成功");
             }
           });
@@ -51,7 +52,7 @@ http
     });
   })
   .listen(6868);
-console.log("HTTP服务已启动", `http://localhost:6767/`);
+console.log("HTTP服务已启动", `http://localhost:6868/`);
 
 /*
  *
